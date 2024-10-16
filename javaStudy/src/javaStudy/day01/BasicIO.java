@@ -1,8 +1,8 @@
-package javaStudy;
+package javaStudy.day01;
 
 import java.util.Scanner;
 
-public class Day1 {
+public class BasicIO {
 	public static void main(String[] args) {
 		System.out.println("Hello World");
 
