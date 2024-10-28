@@ -25,19 +25,27 @@ public class ArithmeticSequnceAndQuery {
         int[] answer = new int[queries.length];
         // 정수배열 arr, 2차원 정수배열 [s,e,k] queries
         // 각 쿼리마다 arr[i]의 최소값 찾기
-        int flag = 0;
-        int min = 10000;
+        
+        //배열의 원소 초기화하기 : Arrays.fill(answer, -1);
         
         for(int i=0;i<queries.length;i++) {
-    		for(int j=0;j<arr.length;j++) {
-    			if(queries[i][0]<=j && queries[i][1]>=j) // s<=i<=k
-    				if(arr[j]>queries[i][2] && min>arr[j]) {//arr[i]>k
-    					answer[i] = arr[j];
-    	    			System.out.println(answer[i]);
+        	int min = 1000000;
+    		for(int j=0;j<arr.length;j++) {	
+    			if(queries[i][0]<=j && queries[i][1]>=j) {
+    				if(arr[j]>queries[i][2]) {
+    					if(min>arr[j]) {
+    						min  = arr[j];
+    					}
     				}
-    			
-    		}	
+    			}
+    		}
+    		if(min == 1000000) {
+    			min = -1;
+    		}
+    		answer[i] = min;
         }
+
+		System.out.printf("%d %d %d",answer[0],answer[1],answer[2]);
         return answer;
     }
 }
