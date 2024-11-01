@@ -1,4 +1,4 @@
-package javaStudy;
+package javaStudy.day08;
 
 import java.util.ArrayList;
 import java.util.Arrays;
