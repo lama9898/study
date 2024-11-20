@@ -3,6 +3,7 @@ package javaStudy.day22;
 import java.util.HashMap;
 
 public class PopularPresentGiver {
+	// 미완성
 
 	public static void main(String[] args) {
 		String[] gifts = {"muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"};
