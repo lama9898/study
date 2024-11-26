@@ -1,36 +1,36 @@
 package javaStudy.day28;
 
-//마저 해야함
 public class DoesItOverlap {
 	public int solution(int[][] lines) {
-        int answer = 0;
-        int smallest = 100;
-        int largest = -100;
-        int current = 0;
-        for(int i=0;i<lines.length;i++){
-            if(lines[i][0]<=smallest){
-                smallest = lines[i][0];
-            }
-            if(lines[i][1]>=largest){
-                largest = lines[i][1];
-            }
-        }
-        current = smallest;
-        while(current<=largest){
-            for(int i=0;i<lines.length;i++){
-                if(lines[i][0]==current){
-                    int d = 0;
-                    for(int j=0;j<lines.length;j++){ // 
-                        if(i!=j && lines[j][0]==current){
-                            d++;
-                        }
-                        current++;
-                    }
-                    // 이 루프 안에서 current 바꿔주기
-                }
-            }
-        }
-        
-        return answer;
-    }
+		int answer = 0;
+		int[] lineCount = new int[201];
+		for (int i = 0; i < lines.length; i++) {
+			for (int j = lines[i][0]; j <= lines[i][1]; j++) {
+				lineCount[j + 100]++;
+			}
+		}
+		for (int l : lineCount) {
+			if (l >= 2)
+				answer++;
+		}
+		return answer;
+	}
+
+	public int otherSolution(int[][] lines) {
+		int answer = 0;
+		for (int i = -100; i < 100; i++) {
+			int line = 0;
+			if (lines[0][0] <= i && lines[0][1] > i)
+				line++;
+			if (lines[1][0] <= i && lines[1][1] > i)
+				line++;
+			if (lines[2][0] <= i && lines[2][1] > i)
+				line++;
+
+			if (line > 1)
+				answer++;
+		}
+
+		return answer;
+	}
 }
